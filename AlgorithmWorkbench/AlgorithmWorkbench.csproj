@@ -51,6 +51,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpareChange.cs" />
+    <Compile Include="SpareChangeDynamic.cs" />
+    <Compile Include="SpareChangeDeep.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -5,10 +5,9 @@ namespace AlgorithmWorkbench
 {
 	class MainClass
 	{
-		
 		public static void Main (string[] args)
 		{
-			var spareChange = new SpareChange ();
+			var spareChange = new SpareChangeDeep();
 
 			using (new ExecutionTimeLogger ("Code")) {
 				spareChange.Execute ();
