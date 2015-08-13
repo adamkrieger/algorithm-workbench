@@ -25,12 +25,12 @@ namespace AlgorithmWorkbench
 			Console.WriteLine(String.Format ("There are {0} ways to make change.", results)); 
 		}
 
-		Int64 MakeChange(int amount, int[] coinOptions){
+		Int64 MakeChange(int amount, int[] coinArray){
 			Int64 solutions = 0;
 
 			//For each coin in the coin options
-			for (var coinIdx = (coinOptions.Length - 1); coinIdx >= 0; coinIdx--) {
-				int remainder = amount - coinOptions [coinIdx];
+			for (var coinIdx = (coinArray.Length - 1); coinIdx >= 0; coinIdx--) {
+				int remainder = amount - coinArray [coinIdx];
 
 				if (_solutionCache [coinIdx].ContainsKey (remainder)) {
 					//If a tree of solutions has been found, return the result already computed
@@ -50,7 +50,7 @@ namespace AlgorithmWorkbench
 					//	Otherwise
 					//		Find the number of MakeChange options if any coin larger is not an option
 					else {
-						var result = MakeChange (remainder, coinOptions.Take (coinIdx + 1).ToArray ());
+						var result = MakeChange (remainder, coinArray.Take (coinIdx + 1).ToArray ());
 						_solutionCache [coinIdx] [remainder] = result;
 
 						solutions += result;

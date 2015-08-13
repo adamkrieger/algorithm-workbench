@@ -14,12 +14,12 @@ namespace AlgorithmWorkbench
 				Console.WriteLine(String.Format ("There are {0} ways to make change.", results)); 
 			}
 
-		int MakeChange(int amount, int[] coinOptions){
+		int MakeChange(int amount, int[] coinArray){
 			int solutions = 0;
 
 			//For each coin in the coin options
-			for(var coinIdx = (coinOptions.Length-1); coinIdx>=0; coinIdx--){
-					int remainder = amount - coinOptions [coinIdx];
+			for(var coinIdx = (coinArray.Length-1); coinIdx>=0; coinIdx--){
+					int remainder = amount - coinArray [coinIdx];
 
 				//	If amount - value == 0
 				//		You've found an option, add one
@@ -35,7 +35,7 @@ namespace AlgorithmWorkbench
 				//	Otherwise
 				//		Find the number of MakeChange options if any coin larger is not an option
 				else {
-					solutions += MakeChange (remainder, coinOptions.Take (coinIdx + 1).ToArray ());
+					solutions += MakeChange (remainder, coinArray.Take (coinIdx + 1).ToArray ());
 				}
 			}
 
